@@ -1,0 +1,17 @@
+# Ignora el entorno virtual
+venv/
+
+# Archivos y carpetas temporales
+__pycache__/
+*.pyc
+*.pyo
+
+# Archivos de VS Code
+.vscode/
+
+# Archivos de Jupyter
+*.ipynb_checkpoints
+
+# Otros
+.DS_Store
+.env

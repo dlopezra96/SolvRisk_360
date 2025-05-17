@@ -1,0 +1,276 @@
+/* === General background and typography === */
+body {
+    background-color: #0e1114;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+/* === Main content wrapper === */
+.main-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 40px 40px 40px;
+    position: relative;
+}
+
+/* === Logo fixed top-right === */
+.logo-wrapper {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    z-index: 10;
+}
+
+.logo-top-right {
+    width: 140px;
+    height: auto;
+    opacity: 0.95;
+    animation: fadeInLogo 0.8s ease-out both;
+    transition: transform 0.3s ease;
+}
+
+.logo-top-right:hover {
+    transform: scale(1.05);
+    opacity: 1;
+}
+
+/* === Title centered below logo === */
+.dashboard-title {
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-top: 100px;
+    margin-bottom: 40px;
+}
+
+/* === Section subtitles (h2) centered === */
+h2 {
+    text-align: center;
+    font-size: 1.7rem;
+    font-weight: 500;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+/* === Dropdown label shared === */
+.dropdown-label {
+    text-align: center;
+    color: #dddddd;
+    font-size: 1rem;
+    margin-bottom: 6px;
+    display: block;
+}
+
+/* === Custom dropdown inside dashed box === */
+.Select-control,
+.Select-menu-outer,
+.selection-box .Select-control {
+    background-color: #1a1d22 !important;
+    color: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+/* === KPI Cards === */
+.kpi-container {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    justify-content: space-between !important;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.kpi-card {
+    flex: 0 1 calc(25% - 20px);  /* 4 cards por fila restando el gap */
+    max-width: calc(25% - 20px);
+    background: #1a1d22;
+    border-radius: 14px;
+    padding: 22px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.6s ease-out both;
+}
+
+.kpi-card:hover {
+    transform: scale(1.05) translateY(-4px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.kpi-card h4 {
+    font-size: 1.05rem;
+    margin: 0;
+    color: #bbbbbb;
+    font-weight: 500;
+}
+
+.kpi-card p {
+    margin-top: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #6976e7;
+}
+
+/* === Table === */
+.table-wrapper {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 4px;
+    background-color: transparent;
+}
+
+th {
+    background-color: #22262b;
+    color: #dddddd;
+    text-align: left;
+    padding: 12px 10px;
+    font-weight: 500;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #333;
+}
+
+td {
+    background-color: #1a1d22;
+    padding: 10px 10px;
+    color: #eeeeee;
+    font-size: 0.95rem;
+    border-bottom: 1px solid #333;
+}
+
+tr:hover td {
+    background-color: #2a2f36;
+}
+
+/* === Animation: fade-in up === */
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* === Animation for logo === */
+@keyframes fadeInLogo {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* === Dataset selection boxes (horizontal layout) === */
+.upload-row {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;   /* hijos igualan altura mínima */
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+/* Antes tenías width:450px; ahora crecen al 50% del contenedor */
+.selection-box,
+.box-container {
+    flex: 1;                /* ocupan el mismo ancho */
+    min-width: 300px;       /* anchura mínima para pantallas pequeñas */
+    min-height: 120px;      /* altura mínima */
+    display: flex;          /* contenedor flex para centrar contenido */
+    flex-direction: column;
+    justify-content: center;/* centra vertical */
+    align-items: stretch;    /* centra horizontal */
+    border: 2px dashed #444;
+    border-radius: 7px;
+    padding: 20px;
+    text-align: center;
+    color: #cccccc;
+    background-color: #1a1d22;
+}
+
+/* Aseguramos que el área de Upload se expanda para ocupar el 100% */
+.box-container .dash-upload {
+    width: 100%;
+    height: 100%;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+
+/* === Parameter‐dropdown background override === */
+.param-dropdown .Select-control {
+    /* make the box a bit lighter than the default #1a1d22 */
+    background-color: #2a2f36 !important;
+  }
+  
+  /* and the menu itself, when you click it: */
+  .param-dropdown .Select-menu-outer {
+    background-color: #2a2f36 !important;
+  }
+  
+  /* dropdown options text */
+  .param-dropdown .Select-option {
+    color: #eeeeee !important;
+  }
+  
+  /* hovered option background */
+  .param-dropdown .Select-option.is-focused {
+    background-color: #3a4149 !important;
+  }
+  
+  /* === Make the chosen value text bright white === */
+.param-dropdown .Select-value .Select-value-label,
+.param-dropdown .Select-placeholder {
+  color: #ffffff !important;
+}
+
+/* also ensure any raw <input> inside the control is white */
+.param-dropdown .Select-input > input {
+  color: #ffffff !important;
+}
+  
+/* assets/style.css */
+/* Override de Bootstrap .text-muted para que sea blanco */
+.text-muted {
+    color: #ffffff !important;
+  }
+
+  /* contenedor flexible de KPI cards */
+.kpi-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    justify-content: center;
+  }
+  
+  /* cada tarjeta de KPI */
+  .kpi-card {
+    background-color: #1a1d22;
+    color: #ffffff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    flex: 1 1 calc(20% - 1rem);
+    min-width: 12rem;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+  
+  /* texto secundario (text-muted) */
+  .text-muted {
+    color: #ccc !important;
+  }
+  
+  
